@@ -1,9 +1,5 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
+<html class="no-js" lang=""> <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>İYTE Aritmetik</title>
@@ -12,32 +8,100 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-        <!--Google fonts links-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
 
         <link rel="stylesheet" href="assets/css/fonticons.css">
         <link rel="stylesheet" href="assets/css/slider-pro.css">
-        <!--<link rel="stylesheet" href="assets/css/stylesheet.css">-->
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
 
-        <!--For Plugins external css-->
         <link rel="stylesheet" href="assets/css/plugins.css" />
 
-        <!--Theme custom css -->
         <link rel="stylesheet" href="assets/css/style.css">
 
-        <!--Theme Responsive css-->
         <link rel="stylesheet" href="assets/css/responsive.css" />
 
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    </head>
+
+        <style>
+            .speaker-section {
+                padding: 80px 0; /* Sayfanın diğer bölümleriyle uyumlu boşluk */
+                background-color: #f4f4f9;
+            }
+            .section-title h2 {
+                margin-bottom: 20px;
+                font-size: 2.5em;
+            }
+            .section-title p {
+                margin-bottom: 40px;
+                color: #666;
+            }
+            /* Konuşmacı Kutusu Ana Stili */
+            .speaker-box {
+                max-width: 100%; /* Sütun genişliğine uyması için */
+                margin: 20px 0; /* Kartlar arasına dikey boşluk */
+                padding: 25px;
+                background-color: #ffffff;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+                transition: box-shadow 0.3s ease, transform 0.3s ease;
+                text-align: left; /* Bootstrap'in text-center'ını sıfırlamak için */
+            }
+
+            .speaker-box:hover {
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+                transform: translateY(-5px); /* Hafifçe yukarı kalkma efekti */
+            }
+
+            /* Konuşmacı Adı */
+            .speaker-name {
+                margin: 0;
+                font-size: 1.4em;
+                font-weight: 600;
+                color: #333;
+            }
+
+            /* Konuşmacı Üniversitesi */
+            .speaker-university {
+                margin: 4px 0 15px 0;
+                font-size: 1em;
+                color: #666;
+            }
+
+            /* Dropdown Menü Stili */
+            .talks-dropdown {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+                font-size: 0.95em;
+                cursor: pointer;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+                background-repeat: no-repeat;
+                background-position: right 10px center;
+                background-size: 10px;
+                padding-right: 30px;
+            }
+
+            .talks-dropdown:hover {
+                border-color: #999;
+            }
+
+            .talks-dropdown:focus {
+                outline: none;
+                border-color: #007bff;
+                box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+            }
+        </style>
+        </head>
     <body data-spy="scroll" data-target=".navbar-collapse">
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         <div class='preloader'><div class='loaded'>&nbsp;</div></div>
         <header id="main_menu" class="header navbar-fixed-top">            
             <div class="main_menu_bg">
@@ -46,7 +110,6 @@
                         <div class="nave_menu">
                             <nav class="navbar navbar-default" id="navmenu">
                                 <div class="container-fluid">
-                                    <!-- Brand and toggle get grouped for better mobile display -->
                                     <div class="navbar-header">
                                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                                             <span class="sr-only">Toggle navigation</span>
@@ -58,10 +121,6 @@
                                             <img src="assets/images/logo.png"/>
                                         </a>
                                     </div>
-
-                                    <!-- Collect the nav links, forms, and other content for toggling -->
-
-
 
                                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                         <ul class="nav navbar-nav navbar-right">
@@ -77,21 +136,56 @@
                                             <li><a href="contact.html">İletişim</a></li>
                                         </ul>    
                                     </div>
-
                                 </div>
                             </nav>
-                        </div>	
+                        </div>  
                     </div>
-
                 </div>
-
             </div>
-        </header> <!--End of header -->
+        </header> <section id="konusmacilar" class="speaker-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="section-title text-center" style="margin-top: 240px;">
+                            <h2>Konuşmacılar</h2>
+                            <p>Seminer serimize katkıda bulunan değerli konuşmacılar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="speaker-box">
+                            <h2 class="speaker-name">Haydar Göral</h2>
+                            <p class="speaker-university">İzmir Yüksek Teknoloji Enstitüsü</p>
+                            <select class="talks-dropdown" onchange="if (this.value) window.location.href=this.value;">
+                                <option value="" disabled selected>Konuşmaları Görüntüle</option>
+                                <option value="hg-1.html">Opening and Erdös Unit Distance Problem</option>
+                                
+                            </select>
+                        </div>
 
+                        <div class="speaker-box">
+                            <h2 class="speaker-name">Talip Can Termen</h2>
+                            <p class="speaker-university">İzmir Yüksek Teknoloji Enstitüsü</p>
+                            <select class="talks-dropdown" onchange="if (this.value) window.location.href=this.value;">
+                                <option value="" disabled selected>Konuşmaları Görüntüle</option>
+                                <option value="tct-1.html">Dirichlet Series I</option>
+                                
+                            </select>
+                        </div>
 
-
-
-        <!-- footer Section -->
+                         <div class="speaker-box">
+                            <h2 class="speaker-name">Mehmet Kaymak</h2>
+                            <p class="speaker-university">İzmir Yüksek Teknoloji Enstitüsü</p>
+                            <select class="talks-dropdown" onchange="if (this.value) window.location.href=this.value;">
+                                <option value="" disabled selected>Konuşmaları Görüntüle</option>
+                                <option value="mk-1.html">Dirichlet Series II</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <footer id="footer" class="footer">
             <div class="container">
                 <div class="main_footer">
@@ -103,14 +197,7 @@
                         </div>
                     </div>
                 </div>
-            </div><!-- End of container -->
-        </footer><!-- End of footer -->
-
-
-
-        <!-- START SCROLL TO TOP  -->
-
-        <div class="scrollup">
+            </div></footer><div class="scrollup">
             <a href="#"><i class="fa fa-chevron-up"></i></a>
         </div>
 
