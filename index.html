@@ -97,121 +97,125 @@
 
 
             <style>
-                /* Basic Reset & Body Style */
-                body, html {
-                    margin: 0;
-                    padding: 0;
-                    font-family: sans-serif;
-                    height: 100%; /* Ensures the slider can be full height */
-                }
+        /* Basic Reset & Body Style */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            height: 100%; /* Ensures the slider can be full height */
+        }
 
-                /* The main slider container */
-                .slider-container {
-                    width: 100vw; /* 100% of the viewport width */
-                    height: 100vh; /* 100% of the viewport height */
-                    position: relative;
-                    overflow: hidden; /* This is the magic! Hides the other slides */
-                    background-color: #222; /* Fallback color while images load */
-                }
+        /* The main slider container */
+        .slider-container {
+            width: 100vw; /* 100% of the viewport width */
+            height: 100vh; /* 100% of the viewport height */
+            position: relative;
+            overflow: hidden; /* This is the magic! Hides the other slides */
+            background-color: #222; /* Fallback color while images load */
+        }
 
-                /* This wrapper holds all the slides and moves horizontally */
-                .slider-wrapper {
-                    display: flex; /* Aligns slides side-by-side */
-                    width: 300%; /* 100% for each of the 3 slides */
-                    height: 100%;
-                    transition: transform 0.6s ease-in-out; /* The sliding animation */
-                }
+        /* This wrapper holds all the slides and moves horizontally */
+        .slider-wrapper {
+            display: flex; /* Aligns slides side-by-side */
+            /* 💡 CORRECTION for 2 Slides: 100% * 2 = 200% */
+            width: 200%; 
+            height: 100%;
+            transition: transform 0.6s ease-in-out; /* The sliding animation */
+        }
 
-                /* Individual slide styling */
-                .slide {
-                    width: 33.3333%; /* Each slide takes up one-third of the wrapper */
-                    height: 100%;
-                    position: relative; /* For positioning the caption */
-                }
+        /* Individual slide styling */
+        .slide {
+            /* 💡 CORRECTION for 2 Slides: 100% / 2 = 50% */
+            width: 50%; 
+            height: 100%;
+            position: relative; /* For positioning the caption */
+        }
 
-                /* Image styling */
-                .slide img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover; /* Crucial for responsiveness. Covers the area without distortion. */
-                }
-                
-                /* Optional: Caption overlay */
-                .slide-caption {
-                    position: absolute;
-                    bottom: 30px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background-color: rgba(0, 0, 0, 0.6);
-                    color: white;
-                    padding: 10px 20px;
-                    border-radius: 5px;
-                    font-size: 1.2rem;
-                    text-align: center;
-                }
+        /* Image styling */
+        .slide img {
+            width: 100%;
+            height: 100%;
+            /* Crucial for responsiveness. Covers the area without distortion. */
+            object-fit: cover; 
+        }
+        
+        /* Optional: Caption overlay */
+        .slide-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-align: center;
+        }
 
-                /* Navigation Buttons (Prev/Next Arrows) */
-                .slider-nav {
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    z-index: 10;
-                }
+        /* Navigation Buttons (Prev/Next Arrows) */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+        }
 
-                .slider-nav button {
-                    background-color: rgba(255, 255, 255, 0.5);
-                    border: none;
-                    color: #333;
-                    font-size: 2rem;
-                    cursor: pointer;
-                    padding: 15px 10px;
-                    transition: background-color 0.3s ease;
-                    user-select: none; /* Prevents text selection on double-click */
-                }
+        .slider-nav button {
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            color: #333;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 15px 10px;
+            transition: background-color 0.3s ease;
+            user-select: none; /* Prevents text selection on double-click */
+        }
 
-                .slider-nav button:hover {
-                    background-color: rgba(255, 255, 255, 0.8);
-                }
-                
-                #prev-button {
-                    margin-left: 15px;
-                    border-radius: 5px 0 0 5px;
-                }
+        .slider-nav button:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        #prev-button {
+            margin-left: 15px;
+            border-radius: 5px 0 0 5px;
+        }
 
-                #next-button {
-                    margin-right: 15px;
-                    border-radius: 0 5px 5px 0;
-                }
-                
-                /* Navigation Dots */
-                .slider-dots {
-                    position: absolute;
-                    bottom: 20px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    display: flex;
-                    z-index: 10;
-                }
+        #next-button {
+            margin-right: 15px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        /* Navigation Dots */
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 10;
+        }
 
-                .dot {
-                    width: 12px;
-                    height: 12px;
-                    background-color: rgba(255, 255, 255, 0.5);
-                    border-radius: 50%;
-                    margin: 0 5px;
-                    cursor: pointer;
-                    transition: background-color 0.3s ease;
-                }
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-                .dot.active {
-                    background-color: #fff;
-                }
+        .dot.active {
+            background-color: #fff;
+        }
 
     </style>
-
+</head>
+<body>
 
     <div class="slider-container">
         <div class="slider-wrapper">
@@ -219,8 +223,11 @@
                 <img src="assets/images/bölüm_foto.jpg" alt="İYTE Matematik Bölümü">
                 <div class="slide-caption">İYTE Matematik Bölümü</div>
             </div>
-            
-        </div>
+            <div class="slide">
+                <img src="assets/images/acilis.jpg" alt="acilis">
+                <div class="slide-caption">Opening and Erdös Unit Distance Problem Seminar</div>
+            </div>
+            </div>
 
         <div class="slider-nav">
             <button id="prev-button">&#10094;</button>
@@ -257,14 +264,14 @@
 
             // --- Core Function to Move Slider ---
             function goToSlide(index) {
-                // Check for valid index
+                // Handle looping from last slide to first (and vice-versa)
                 if (index < 0) {
                     index = totalSlides - 1;
                 } else if (index >= totalSlides) {
                     index = 0;
                 }
 
-                // Move the wrapper
+                // Calculate the translation percentage based on the number of slides
                 const offset = index * -100 / totalSlides;
                 sliderWrapper.style.transform = `translateX(${offset}%)`;
                 
@@ -295,12 +302,11 @@
                 goToSlide(currentIndex - 1);
             });
             
-            // --- Optional: Automatic Sliding ---
-            // Uncomment the following lines to make the slider advance automatically
+            // --- Optional: Automatic Sliding (Uncomment to activate) ---
             /*
             let autoSlideInterval = setInterval(() => {
                 goToSlide(currentIndex + 1);
-            }, 5000); // Change 5000 to your desired interval in milliseconds (e.g., 3000 for 3 seconds)
+            }, 5000); // 5 seconds
 
             // Optional: Pause auto-slide on hover
             const sliderContainer = document.querySelector('.slider-container');
@@ -376,7 +382,7 @@
                     list-style: none;
                     padding: 0;
                     margin: 0;
-                    animation: ticker-scroll 40s linear infinite;
+                    animation: ticker-scroll 60s linear infinite;
                 }
 
                 .seminar-ticker-widget:hover .ticker {
@@ -438,8 +444,18 @@
                             <p class="text-md text-gray-600">By <span class="font-semibold">Mehmet Kaymak</span></p>
                         </div>
                         <div class="seminar-item p-6 flex-grow bg-gray-50 rounded-lg">
-                            <p class="text-sm font-medium text-indigo-600 mb-2">TBA</p>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">TBA</h2>
+                            <p class="text-sm font-medium text-indigo-600 mb-2">11 Kasım 2025</p>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">Harmonic Numbers and Their p-Adic Structure</h2>
+                            <p class="text-md text-gray-600">By <span class="font-semibold">Doruk Üstündağ</span></p>
+                        </div>
+                        <div class="seminar-item p-6 flex-grow bg-gray-50 rounded-lg">
+                            <p class="text-sm font-medium text-indigo-600 mb-2">18 Kasım 2025</p>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">A Proof of Bertrand's Postulate</h2>
+                            <p class="text-md text-gray-600">By <span class="font-semibold">Eda Uzun</span></p>
+                        </div>
+                        <div class="seminar-item p-6 flex-grow bg-gray-50 rounded-lg">
+                            <p class="text-sm font-medium text-indigo-600 mb-2">25 Kasım 2025</p>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">Binary Linear Constant Weight Codes and Symmetric Differences</h2>
                             <p class="text-md text-gray-600">By <span class="font-semibold">Murat Altunbulak</span></p>
                         </div>
                         <div class="seminar-item p-6 flex-grow bg-gray-50 rounded-lg">
@@ -451,6 +467,11 @@
                             <p class="text-sm font-medium text-indigo-600 mb-2">TBA</p>
                             <h2 class="text-2xl font-bold text-gray-900 mb-2">TBA</h2>
                             <p class="text-md text-gray-600">By <span class="font-semibold">Engin Büyükaşık</span></p>
+                        </div>
+                        <div class="seminar-item p-6 flex-grow bg-gray-50 rounded-lg">
+                            <p class="text-sm font-medium text-indigo-600 mb-2">TBA</p>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">TBA</h2>
+                            <p class="text-md text-gray-600">By <span class="font-semibold">Deniz Göksu</span></p>
                         </div>
 
                         <div class="seminar-item p-6 flex-grow bg-gray-50 rounded-lg">
@@ -464,8 +485,18 @@
                             <p class="text-md text-gray-600">By <span class="font-semibold">Mehmet Kaymak</span></p>
                         </div>
                         <div class="seminar-item p-6 flex-grow bg-gray-50 rounded-lg">
-                            <p class="text-sm font-medium text-indigo-600 mb-2">TBA</p>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">TBA</h2>
+                            <p class="text-sm font-medium text-indigo-600 mb-2">11 Kasım 2025</p>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">Harmonic Numbers and Their p-Adic Structure</h2>
+                            <p class="text-md text-gray-600">By <span class="font-semibold">Doruk Üstündağ</span></p>
+                        </div>
+                        <div class="seminar-item p-6 flex-grow bg-gray-50 rounded-lg">
+                            <p class="text-sm font-medium text-indigo-600 mb-2">18 Kasım 2025</p>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">A Proof of Bertrand's Postulate</h2>
+                            <p class="text-md text-gray-600">By <span class="font-semibold">Eda Uzun</span></p>
+                        </div>
+                        <div class="seminar-item p-6 flex-grow bg-gray-50 rounded-lg">
+                            <p class="text-sm font-medium text-indigo-600 mb-2">25 Kasım 2025</p>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">Binary Linear Constant Weight Codes and Symmetric Differences</h2>
                             <p class="text-md text-gray-600">By <span class="font-semibold">Murat Altunbulak</span></p>
                         </div>
                         <div class="seminar-item p-6 flex-grow bg-gray-50 rounded-lg">
@@ -477,6 +508,11 @@
                             <p class="text-sm font-medium text-indigo-600 mb-2">TBA</p>
                             <h2 class="text-2xl font-bold text-gray-900 mb-2">TBA</h2>
                             <p class="text-md text-gray-600">By <span class="font-semibold">Engin Büyükaşık</span></p>
+                        </div>
+                        <div class="seminar-item p-6 flex-grow bg-gray-50 rounded-lg">
+                            <p class="text-sm font-medium text-indigo-600 mb-2">TBA</p>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">TBA</h2>
+                            <p class="text-md text-gray-600">By <span class="font-semibold">Deniz Göksu</span></p>
                         </div>
                     </div>
                 </div>
