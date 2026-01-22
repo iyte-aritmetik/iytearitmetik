@@ -199,6 +199,42 @@
             background-color: #fff;
         }
 
+        /* --- MOBİL İÇİN DÜZENLEMELER --- */
+        @media (max-width: 768px) {
+            
+            /* 1. Header (Menü) Sabitlemesini Kaldır */
+            .navbar-fixed-top {
+                position: relative !important; /* Artık asılı kalmaz, sayfa akışına girer */
+                top: auto !important;
+            }
+
+            /* Menü artık fixed olmadığı için slider'ın üstüne binmez, 
+            bu yüzden body'deki (varsa) padding'i sıfırlayabiliriz */
+            body {
+                padding-top: 0 !important;
+            }
+
+            /* 2. Slider Yüksekliğini Ayarla */
+            /* Mobilde 100vh (tam ekran) kullanmak tarayıcı çubuğu yüzünden 
+            zıplama yapar ve kullanımı zorlaştırır. Yüksekliği kısıtlayalım: */
+            .slider-container {
+                height: 50vh; /* Ekranın yarısı kadar yükseklik */
+                min-height: 300px; /* Çok küçük ekranlarda da çok daralmasın */
+            }
+            
+            /* Navigasyon oklarını mobilde gizle (overlay sorununu azaltır) */
+            .slider-nav button {
+                display: none; 
+            }
+
+            /* Yazıların mobilde daha okunaklı olması için font/konum ayarı */
+            .slide-caption {
+                width: 90%;
+                font-size: 1rem;
+                bottom: 10px;
+                padding: 5px;
+            }
+        }
     </style>
 </head>
 <body>
